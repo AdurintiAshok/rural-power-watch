@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { UserRole } from "@/types";
 import { getCurrentUser } from "@/services/alertService";
-import { Bell } from "lucide-react";
+import { NotificationsDropdown } from "@/components/NotificationsDropdown";
 
 export const Header: React.FC = () => {
   // In a real app, we would get the current user from authentication
@@ -53,10 +53,7 @@ export const Header: React.FC = () => {
             </Link>
           )}
           
-          <Button variant="ghost" size="icon" className="relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full" />
-          </Button>
+          <NotificationsDropdown />
           
           <Button variant="outline" size="sm">
             {currentUser.name}

@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Dashboard } from "@/components/Dashboard";
 import { AlertDetail } from "@/components/AlertDetail";
@@ -9,6 +9,10 @@ import { Alert } from "@/types";
 export const DashboardPage: React.FC = () => {
   const [selectedAlert, setSelectedAlert] = useState<Alert | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "PowerLine Alert Dashboard – Official View";
+  }, []);
 
   const handleAlertSelect = (alert: Alert) => {
     setSelectedAlert(alert);
@@ -25,7 +29,8 @@ export const DashboardPage: React.FC = () => {
       <Header />
       
       <main className="flex-1 container mx-auto px-4 py-6">
-        <h1 className="text-2xl font-bold mb-6">Official Dashboard</h1>
+        <h1 className="text-2xl font-bold mb-2">PowerLine Alert Dashboard</h1>
+        <p className="text-muted-foreground mb-6">Monitor and manage reported power line issues efficiently.</p>
         <Dashboard />
       </main>
       
